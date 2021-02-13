@@ -1,10 +1,10 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess
 {
 
     //Generic Constraint Generic kısıtlama // T bir class bir referans tipi olacak şekilde kısıtlandı
@@ -14,7 +14,6 @@ namespace DataAccess.Abstract
     //new() : New lenebilir olmalı
     public interface IEntityRepository<T> where T:class,IEntitiy,new()
     {
-
         List<T> GetAll(Expression<Func<T,bool>> filter=null);
         T Get(Expression<Func<T, bool>> filter);
         void Add(T entity);
